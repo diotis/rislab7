@@ -27,6 +27,7 @@ public class BookController {
         model.addAttribute("listBooks", this.bookService.listBooks());
         return "books";
     }
+    
 
     @RequestMapping(value = "/books/add", method = RequestMethod.POST)
     public String addBook(@ModelAttribute("book") Book book){
@@ -36,14 +37,14 @@ public class BookController {
             this.bookService.updateBook(book);
         }
 
-        return "redirect:/books";
+        return "redirect:/";
     }
 
     @RequestMapping("/remove/{id}")
     public String removeBook(@PathVariable("id") int id){
         this.bookService.removeBook(id);
 
-        return "redirect:/books";
+        return "redirect:/";
     }
 
     @RequestMapping("edit/{id}")
